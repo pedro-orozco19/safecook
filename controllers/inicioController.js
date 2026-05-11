@@ -5,14 +5,14 @@ const getInicio = (req, res) => {
         if (err) return res.status(500).json({ error: err.message });
 
         res.json({
-            mensaje: "Bienvenido al sistema SafeCook", 
-            fecha: new Date().toISOString(), 
+            mensaje: "Bienvenido al sistema SafeCook",
+            fecha: new Date().toISOString(),
             modulos: [
-                "Usuarios", 
-                "Sensores", 
-                "Alertas", 
-                "Dispositivos", 
-                "Registros"
+                "Landing Page y Login",
+                "Dashboard de Monitoreo",
+                "Analítica Predictiva",
+                "Bitácora Histórica",
+                "Soporte y Feedback"
             ], 
             datoDinamico: {
                 totalUsuariosRegistrados: results[0].totalUsuarios
