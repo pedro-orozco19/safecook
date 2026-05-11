@@ -8,6 +8,9 @@ const app = express(); // creamos la aplicacion
 app.use(cors());           
 app.use(express.json());   
 
+const authRoutes = require('./routes/auth');
+app.use('/api/auth', authRoutes);
+
 // Arrancamos el servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
