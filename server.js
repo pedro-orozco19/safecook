@@ -26,6 +26,10 @@ app.use('/api/soporte', soporteRoutes);
 const deteccionRoutes = require('./routes/deteccion');
 app.use('/api/deteccion', deteccionRoutes);
 
+// Rutas de Analítica Predictiva
+const analiticaRoutes = require('./routes/analitica');
+app.use('/api/analitica', analiticaRoutes);
+
 // Arrancamos el servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
