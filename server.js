@@ -14,6 +14,10 @@ app.use('/api/auth', authRoutes);
 const inicioRoutes = require('./routes/inicio');
 app.use('/api/inicio', inicioRoutes);
 
+// Rutas de la Bitácora Histórica
+const bitacoraRoutes = require('./routes/bitacora');
+app.use('/api/bitacora', bitacoraRoutes);
+
 // Arrancamos el servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
