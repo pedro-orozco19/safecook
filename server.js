@@ -30,6 +30,10 @@ app.use('/api/deteccion', deteccionRoutes);
 const analiticaRoutes = require('./routes/analitica');
 app.use('/api/analitica', analiticaRoutes);
 
+// Rutas de Usuarios (CRUD Admin)
+const usuariosRoutes = require('./routes/usuarios');
+app.use('/api/usuarios', usuariosRoutes);
+
 // Arrancamos el servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
