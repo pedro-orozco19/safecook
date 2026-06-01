@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeCook | Iniciar Sesión</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: #f4eee1; display: flex; justify-content: center; align-items: center; height: 100vh;">
+    
+    <div class="login-card">
+        <img src="logosolitario.png" alt="SafeCook Logo" class="login-logo">
+        
+        <h2>SafeCook PRO</h2>
+        <p>Inicie sesión para monitorear el sistema</p>
+
+        <form onsubmit="event.preventDefault(); login()">
+            <div id="alerta" style="margin-bottom: 15px; font-weight: bold; color: #ef4444;"></div>
+            
+            <div class="login-input">
+                <i class="fa-solid fa-user"></i>
+                <input type="email" id="inputEmail" placeholder="Correo electrónico" required>
+            </div>
+            <div class="login-input">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="inputPassword" placeholder="Contraseña" required>
+            </div>
+            <button type="submit" class="login-button" id="btnLogin">
+                ENTRAR <i class="fa-solid fa-right-to-bracket"></i>
+            </button>
+        </form>
+        
+        <p style="margin-top: 20px; font-size: 0.9rem; color: #64748b;">
+            ¿No tienes cuenta? <a href="registro.html" style="color: #2d5a27; font-weight: bold;">Regístrate aquí</a>
+        </p>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

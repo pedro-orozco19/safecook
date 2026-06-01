@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeCook | Panel de Control Pro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <i class="fa-solid fa-shield-halved"></i> SafeCook IoT
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item active" data-target="dashboard"><i class="fa-solid fa-chart-line"></i> Detección de Gas</li>
+            <li class="nav-item" data-target="analitica"><i class="fa-solid fa-magnifying-glass-chart"></i> Analítica Predictiva</li>
+            <li class="nav-item" data-target="bitacora"><i class="fa-solid fa-table-list"></i> Bitácora Histórica</li>
+            <li class="nav-item" data-target="feedback"><i class="fa-solid fa-comments"></i> Soporte y Feedback</li>
+            <li class="nav-item" data-target="configuracion"><i class="fa-solid fa-microchip"></i> Configuración ESP32</li>
+        </ul>
+        <div class="sidebar-footer">
+            <p><i class="fa-solid fa-circle-check" style="color:#48c774;"></i> Sistema en Línea</p>
+            <button onclick="cerrarSesion()" class="action-btn" style="margin-top: 15px; width: 100%; background-color: #ef4444; justify-content: center;">
+                <i class="fa-solid fa-power-off"></i> Cerrar Sesión
+            </button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="header">
+            <div>
+                <h2 id="header-title">Monitoreo en Tiempo Real</h2>
+                <p class="subtitle">Instituto Tecnológico Superior de Rioverde</p>
+            </div>
+            <div class="user-profile">
+                <i class="fa-solid fa-user-tie"></i> Admin: <span id="nombreUsuario">Cargando...</span>
+            </div>
+        </header>
+
+        <section id="dashboard" class="content-section active">
+            <div class="dashboard">
+                <div class="slider-container">
+                    <h3><i class="fa-solid fa-sliders"></i> Simulador de Sensor MQ-2</h3>
+                    <input type="range" id="gas-slider" min="100" max="1000" value="120" step="10">
+                    <button id="btn-enviar-lectura" class="action-btn" style="width: 100%; justify-content: center; background-color: #3b82f6;">
+                        <i class="fa-solid fa-satellite-dish"></i> Inyectar Lectura al Dashboard
+                    </button>
+                </div>
+                <div class="cards-grid">
+                    <div class="card" id="card-gas">
+                        <div class="card-icon"><i class="fa-solid fa-cloud"></i></div>
+                        <div>
+                            <h3>Nivel de Gas (MQ-2)</h3>
+                            <div class="value" id="gas-level">-- PPM</div>
+                            <p class="status-text" id="gas-status">Esperando datos...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h3><i class="fa-solid fa-wave-square"></i> Telemetría de Gas LP</h3>
+                    <canvas id="gasChart"></canvas>
+                </div>
+            </div>
+        </section>
+        </main>
+
+    <script src="js/inicio.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
