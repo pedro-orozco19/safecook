@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeCook | Gestión de Usuarios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .table-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .search-box { padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1; width: 300px; font-family: inherit; }
+        .btn-editar { background-color: #f59e0b; color: white; padding: 6px 12px; border-radius: 6px; border: none; cursor: pointer; margin-right: 5px; }
+        .btn-eliminar { background-color: #ef4444; color: white; padding: 6px 12px; border-radius: 6px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <i class="fa-solid fa-shield-halved"></i> SafeCook IoT
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item" onclick="window.location.href='inicio.html'"><i class="fa-solid fa-chart-line"></i> Detección de Gas</li>
+            <li class="nav-item" onclick="window.location.href='soporte.html'"><i class="fa-solid fa-comments"></i> Gestión de Soporte</li>
+            <li class="nav-item active"><i class="fa-solid fa-users"></i> Gestión de Usuarios</li>
+        </ul>
+        <div class="sidebar-footer">
+            <p><i class="fa-solid fa-circle-check" style="color:#48c774;"></i> Sistema en Línea</p>
+            <button onclick="cerrarSesion()" class="action-btn" style="margin-top: 15px; width: 100%; background-color: #ef4444; justify-content: center;">
+                <i class="fa-solid fa-power-off"></i> Cerrar Sesión
+            </button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="header">
+            <div>
+                <h2>Módulo de Gestión de Usuarios</h2>
+                <p class="subtitle">Administración de cuentas con acceso a SafeCook PRO</p>
+            </div>
+            <div class="user-profile">
+                <i class="fa-solid fa-user-tie"></i> Admin: <span id="nombreUsuario">...</span>
+            </div>
+        </header>
+
+        <section class="dashboard">
+            <div id="alerta" style="margin-bottom: 15px; font-weight: bold;"></div>
+            
+            <div class="data-table-container">
+                <div class="table-controls">
+                    <button class="action-btn" onclick="window.location.href='usuarios-registrar.html'">
+                        <i class="fa-solid fa-user-plus"></i> Nuevo Usuario
+                    </button>
+                    <input type="text" id="buscador" class="search-box" placeholder="Buscar por nombre o email..." onkeyup="filtrarTabla()">
+                </div>
+
+                <table class="bitacora-table" id="tablaUsuarios">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre Completo</th>
+                            <th>Correo Electrónico</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpoTabla">
+                        <tr>
+                            <td colspan="4" style="text-align: center;">Cargando usuarios...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/usuarios.js"></script>
+</body>
+</html>
