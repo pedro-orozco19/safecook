@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeCook | Editar Reporte</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <i class="fa-solid fa-shield-halved"></i> SafeCook IoT
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item" onclick="window.location.href='inicio.html'"><i class="fa-solid fa-chart-line"></i> Detección de Gas</li>
+            <li class="nav-item active" onclick="window.location.href='soporte.html'"><i class="fa-solid fa-comments"></i> Gestión de Soporte</li>
+            <li class="nav-item" onclick="window.location.href='usuarios.html'"><i class="fa-solid fa-users"></i> Gestión de Usuarios</li>
+        </ul>
+        <div class="sidebar-footer">
+            <button onclick="cerrarSesion()" class="action-btn" style="width: 100%; background-color: #ef4444; justify-content: center;">
+                <i class="fa-solid fa-power-off"></i> Cerrar Sesión
+            </button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="header">
+            <div>
+                <h2>Editar Reporte de Soporte</h2>
+                <p class="subtitle">Modifica los datos del registro seleccionado</p>
+            </div>
+            <div class="user-profile">
+                <i class="fa-solid fa-user-tie"></i> Admin: <span id="nombreUsuario">...</span>
+            </div>
+        </header>
+
+        <section class="dashboard">
+            <div class="data-table-container" style="max-width: 600px; margin: 0 auto;">
+                <h3><i class="fa-solid fa-pen-to-square"></i> Actualizar Feedback</h3>
+                <div id="alerta" style="margin-bottom: 15px; font-weight: bold;"></div>
+                
+                <form id="form-editar" onsubmit="event.preventDefault(); actualizarRegistro()" style="display: flex; flex-direction: column; gap: 15px;">
+                    
+                    <div>
+                        <label style="font-weight: 600; color: #475569; font-size: 0.9rem;">Nombre del Operador</label>
+                        <input id="inputOperador" required type="text" style="width: 100%; margin-top: 8px; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-family: inherit;">
+                    </div>
+
+                    <div>
+                        <label style="font-weight: 600; color: #475569; font-size: 0.9rem;">Tipo de Reporte</label>
+                        <select id="inputTipo" style="width: 100%; margin-top: 8px; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-family: inherit; background: white;">
+                            <option value="Sugerencia Atendida">Sugerencia Atendida</option>
+                            <option value="Sugerencia">Sugerencia</option>
+                            <option value="Queja">Queja</option>
+                            <option value="Problema Tecnico">Problema Técnico</option>
+                            <option value="Felicitacion">Felicitación</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="font-weight: 600; color: #475569; font-size: 0.9rem;">Experiencia / Descripción</label>
+                        <textarea id="inputExperiencia" required rows="4" style="width: 100%; margin-top: 8px; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; resize: vertical; font-family: inherit;"></textarea>
+                    </div>
+                    
+                    <div>
+                        <label style="font-weight: 600; color: #475569; font-size: 0.9rem;">Calificación (1 al 10)</label>
+                        <input id="inputCalificacion" required type="number" min="1" max="10" style="width: 100%; margin-top: 8px; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-family: inherit;">
+                    </div>
+
+                    <div style="display: flex; gap: 10px; margin-top: 10px;">
+                        <button type="button" class="action-btn" style="background-color: #64748b; flex: 1; justify-content: center;" onclick="window.location.href='soporte.html'">
+                            Cancelar
+                        </button>
+                        <button type="submit" id="btnGuardar" class="action-btn" style="background-color: #f59e0b; flex: 1; justify-content: center;">
+                            <i class="fa-solid fa-save"></i> Guardar Cambios
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/soporte-editar.js"></script>
+</body>
+</html>
